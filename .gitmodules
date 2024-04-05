@@ -1,0 +1,6 @@
+[submodule "dashboard-campeonato-brasileiro-frontend"]
+	path = dashboard-campeonato-brasileiro-frontend
+	url = git@github.com:felipexpert1996/dashboard-campeonato-brasileiro-frontend.git
+[submodule "dashboard-campeonato-brasileiro-backend"]
+	path = dashboard-campeonato-brasileiro-backend
+	url = git@github.com:felipexpert1996/dashboard-campeonato-brasileiro-backend.git
