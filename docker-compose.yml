@@ -26,14 +26,15 @@ services:
     ports:
       - 8000:8000
     build:
-      context: ./backend
+      context: ./dashboard-campeonato-brasileiro-backend
       dockerfile: Dockerfile
     volumes:
-      - ./backend:/app
-      - ./backend/static:/static
+      - ./dashboard-campeonato-brasileiro-backend:/app
+      - ./dashboard-campeonato-brasileiro-backend/static:/static
     command: >
       sh -c "python manage.py makemigrations
       && python manage.py migrate
+      && python manage.py loaddata ./fixtures/dump.json
       && python manage.py runserver 0.0.0.0:8000"
     depends_on:
       - database
@@ -47,10 +48,10 @@ services:
     ports:
       - 4200:4200
     build:
-      context: ./frontend
+      context: ./dashboard-campeonato-brasileiro-frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend:/app
+      - ./dashboard-campeonato-brasileiro-frontend:/app
       - /app/node_modules
     command: ng serve --host 0.0.0.0
     depends_on:
